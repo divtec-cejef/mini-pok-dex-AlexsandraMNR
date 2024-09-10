@@ -52,8 +52,10 @@ function displayPokemons() {
     //querySelector sert à aller chercher les éléments dans le index.html si on le connait on connait comment récupérer
     //n'importe quel objet. le querySelectorAll sert à tout aller chercher et en fait un tableau
     const divContainer = document.querySelector('.pokemon-container');
+    const selectContainer = document.getElementById('type-filter');
     //vide le contenu du contenaire
     divContainer.innerHTML = '';
+    selectContainer.innerHTML = '';
 
     //Fait en sorte que si on met aucun pokemon valide il affiche le code d'erreur
     //pokemonsTab.length === 0 ça veut dire que si le tableau est vide on met le code d'erreur donc pokemons est le nom
@@ -76,9 +78,10 @@ function displayPokemons() {
         //on ajoute un += pour améliorer la lisibilité
         //on met le ${} pour indiquer le début et la fin du javascript et on peux ajouter plus de détails par exemple
         //`<p>${pokemon.name}<strong>${pokemon.level}</strong></p>` ça ça va ajouter son niveau.
-        resHTML += `<p>${pokemon.name}</p>`;
+        resHTML += `<p>${pokemon.name} <small>${pokemon.type}</small></p>`;
+        let type = resHTML.split(",");
     }
-    divContainer.innerHTML = resHTML
+    divContainer.innerHTML = resHTML;
 }
 
 // Quand on écrit ça c'est pour afficher la fonction pour qu'elle nous retourne ce
